@@ -13,10 +13,10 @@ function prefix (prefixName) {
 
 const names = ['jane', 'mary', 'crystal']
 // Takes in a list of names. For each name, it is calling (name) => ("ms" + " " + name) function. 
-console.log(names.map(prefix('mr')))
+console.log(names.map(prefix('ms')))
 ```
 
 ## Output 
 ```js
-> Array ["mr jane", "mr mary", "mr crystal"]
+> Array ["ms jane", "ms mary", "ms crystal"]
 ```
