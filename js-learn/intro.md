@@ -1,19 +1,44 @@
 # Introduction 
-
 - Javascript is a single-threaded, synchronous language. 
 - A function that takes a long time to run will cause the page to become unresponsive.
 
+## Map, Filter and Reduce
+### Implementation of Map
+```javascript
+const arr = [1,2,3,4] 
+
+function map(arr, func) {
+  const newArr = [] 
+  
+  /*for (let i=0; i<arr.length; i++){
+    newArr.push(addOne(arr[i]))
+  }*/
+  
+  // forEach would not create a new array to return the values.
+  arr.forEach(function (x) {
+    newArr.push(addOne(x))
+  })
+  
+  return newArr
+}
+
+function addOne(x) {
+  return x + 1
+}
+
+console.log(map(arr, addOne))
+
+```
 ## Asynchronous Javascript
+- Execution Stack: A call stack for the code. Main part of the code that would always get executed first, before the event loop sees anything else in the queue to be added into the stack. 
+- Browser APIs: Handles all the asynchronous functions and push it into the queue once completed. 
+- Function Queue: Once the Brower API completes a task (e.g. `setTimeout(function(){...}, 1000)`, it adds its the `function {...}` into the queue. 
+- Event Loop: Waits to see if there is any thing left (to execute) in the stack, no? Check the Queue if there is anything. yes? Remove it from the queue and push it into the stack. So that the stack would execute `function{...}`.
 
 ### Example of Asynchronous functions
 - setTimeout()
 - XMLHttpRequest(),jQuery ajax(), fetch()
 - Database calls
-
-- Execution Stack: A call stack for the code. Main part of the code that would always get executed first, before the event loop sees anything else in the queue to be added into the stack. 
-- Browser APIs: Handles all the asynchronous functions and push it into the queue once completed. 
-- Function Queue: Once the Brower API completes a task (e.g. `setTimeout(function(){...}, 1000)`, it adds its the `function {...}` into the queue. 
-- Event Loop: Waits to see if there is any thing left (to execute) in the stack, no? Check the Queue if there is anything. yes? Remove it from the queue and push it into the stack. So that the stack would execute `function{...}`.
 
 ## Concurreny Model 
 ### Callbacks
@@ -24,7 +49,28 @@
  - Callback hell occurs when there is an asynchronous function that calls a callback, the callback calls another asynchronous function that calls another callback, etc and this goes on.
     - The code is very nested like a Christmas tree. 
     - To solve this we use promises.
+```javascript
+function login(req, res, callback){
+  User.findOne({email: req.body.email}), function(err, user) {
+    if (err) return callback(err)
     
+    user.comparePassword(req.body.password), (err, isMatch) => {
+      if (err) return callback(err)
+      if (!isMatch) {
+        return res.status(401).send('Incorrect password')
+      }
+      
+     // More callbacks
+     ... 
+     ...
+     
+    })
+  })
+  
+  ...
+}
+
+```
 ### Promises 
  ```javascript
  const url = ''
