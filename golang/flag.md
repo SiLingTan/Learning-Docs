@@ -30,7 +30,7 @@ func main() {
 Running on command line:
 ```bash
 # Set paid to true and vegetarian to false.
-$ go run /Users/tansiling/Downloads/D4d0Vi9lnXd.go -paid -vegetarian=false
+$ go run /Users/<your-file-path>/main.go -paid -vegetarian=false
 # Output.
 vegetarian false
 paid true
