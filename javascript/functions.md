@@ -6,6 +6,19 @@ var helloWorld = function(){
 }
 ```
 
+# Nested Functions
+
+``` javascript
+function helloWorld() {
+    return function() {
+        return "hello world!";
+    }
+}
+
+// Call it with 2 brackets. 
+helloWorld()()
+```
+
 # Function Scope and Conflicts
 Global scope are values that are accessible from everywhere in the code. 
 
