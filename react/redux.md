@@ -1,5 +1,7 @@
 ## Introduction to Redux
 
+- Redux limit how our data can be modified, so that our application complexity does not grow exponentially (as the app grows in size). 
+
 ### Example: 
 ```javascript
 console.clear()
