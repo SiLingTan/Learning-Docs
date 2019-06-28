@@ -42,6 +42,7 @@ It is ...
 ```
 
 ### Signature
+- During jwt verification, the signature of the jwt is being matched. 
 ```
 HMACSHA256(
   base64UrlEncode(header) + "." +
