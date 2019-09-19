@@ -16,4 +16,24 @@ fmt.Println("sorted nums: ", nums)
 s := []string{"james", "amy", "sam"}
 sort.Strings(s)
 fmt.Println("sorted strings: ", s)
+
+// Typed collection of fields. 
+type Person struct {
+  Name string
+  Age int
+}
+
+func main() {
+  person := []Person {
+    {"Bob", 20}, 
+    {"Jane", 19},
+		{"James",2},
+  }
+
+  sort.Slice(person, func(i, j int) bool {
+    return person[i].Age < person[j].Age
+  })
+  fmt.Println("sorted by age", person)
+}
+
 ```
