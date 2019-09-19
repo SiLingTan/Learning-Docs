@@ -30,6 +30,7 @@ func main() {
     {"James",2},
   }
 
+  // Use sort.SliceStable() for stable sort: keeping original order of elements that are equal. 
   sort.Slice(person, func(i, j int) bool {
     return person[i].Age < person[j].Age
   })
