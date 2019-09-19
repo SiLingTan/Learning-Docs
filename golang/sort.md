@@ -27,7 +27,7 @@ func main() {
   person := []Person {
     {"Bob", 20}, 
     {"Jane", 19},
-		{"James",2},
+    {"James",2},
   }
 
   sort.Slice(person, func(i, j int) bool {
