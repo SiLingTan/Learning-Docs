@@ -21,3 +21,8 @@ if err != nil {
 …
 once all is done, tx.Commit()
 ```
+
+Links: 
+- https://pseudomuto.com/2018/01/clean-sql-transactions-in-golang/
+- https://stackoverflow.com/questions/9022691/what-constitutes-a-transaction-layer-when-talking-about-database-systems
+
